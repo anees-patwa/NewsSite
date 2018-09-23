@@ -1,6 +1,8 @@
 <?php
+session_start();
 if(!isset($_SESSION['userID'])){
-    redirect("Location: home.php");
+	redirect("Location: home.php");
+	exit();
 }
 
 $userID = $_SESSION['userID'];

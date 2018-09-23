@@ -1,43 +1,41 @@
 <?php
 session_start();
+if(!isset($_SESSION['userID']))
 ob_start();
 $user_id =   $_POST['user_ID'];
 $user_name = $_POST['user_name'];
 $password =  $_POST['user_password']; 
 
 
-require('dataBase.php');
+require('dataBaseAnees.php');
 require('nonUserNav.php');
 
-$stmt = $mysqli->prepare("select hash from loginData where username=?");
+$stmt = $mysqli->prepare("select id, hash from loginData where username=?");
 
 $stmt->bind_param('s', $user_name);
 $stmt->execute();
 
-$stmt->bind_result($pass);
+$stmt->bind_result($userID, $pass);
 
 $stmt->fetch();
 // $pass = '$2y$10$.JjE5/umvxBVfTxAxdprfeRB9hRiYnAUvdzdsZBI4K9NkcH/AUQny'
 $pass = str_replace('"',"'",$pass);
 $password = str_replace('"',"'",$password);
-    if(password_verify($password, $pass)){
-        echo "login Successful";
-        echo "<p> </p>";
-        exit();
-        
-    }
-        else{
-            echo "<p> </p>";
-            echo $pass;
-            echo "<br>";
-            echo $password;
-            echo "<br>";
-            echo password_verify($password, $pass);
-            echo 'not working';
-        }
+if(password_verify($password, $pass)){
+    $_SESSION['userID'] = $userID;
+    ob_end_clean();
+    header("Location: home.php");
+    exit();
+    
+}
+else{
+    ob_end_clean();
+    header("Location: home.php");
+    exit();
+}
     
 
-
+ob_end_flush();
 // if($user_name == $id){
 //     echo "users match";
 // }
