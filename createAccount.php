@@ -10,7 +10,7 @@
     ?>
   </head>
   <body>
-    <div class="container" style="background-color: red">
+    <div class="container" style="background-color: gray">
         <h1>Create User</h1>
         <form action="processNewUser.php" method="post">
             <div class="form-group">

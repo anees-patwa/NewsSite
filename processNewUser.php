@@ -9,6 +9,19 @@ $password =  $_POST['user_password'];
 
 $hash = password_hash($password, PASSWORD_BCRYPT);
 
-$insert = $mysqli->prepare("insert into loginData ('id', 'username', 'hash') values ('$user_id', '$user_name', '$hash')");
+
+$insert = $mysqli->prepare("insert into loginData (id, username, hash) values (?, ?, ?)");
+if(!$insert){
+	printf("Query Prep Failed: %s\n", $mysqli->error);
+	exit;
+}
+
+$insert->bind_param('sss',$user_id ,$user_name , $password);
+
+$insert->execute();
+
+$insert->close();
+
+
 
 ?>
