@@ -14,7 +14,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Create Post</a>
+        <a class="nav-link" href="createPostView.php">Create Post</a>
       </li>
       <li class="nav-item active">
        
