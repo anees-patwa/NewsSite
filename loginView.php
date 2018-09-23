@@ -10,7 +10,7 @@
     ?>
   </head>
   <body>
-    <div class="container" style="background-color: gray">
+    <div class="container" style="background-color: red">
         <h1>Login</h1>
         <form action="checkLogin.php" method="post">
             <div class="form-group">
