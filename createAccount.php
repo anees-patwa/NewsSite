@@ -11,21 +11,19 @@
   </head>
   <body>
     <div class="container" style="background-color: red">
-        <h1>Login</h1>
-        <form action="checkLogin.php" method="post">
+        <h1>Create User</h1>
+        <form action="processNewUser.php" method="post">
             <div class="form-group">
-                <label>User Name</label>
-                <input type="userName" name="user_ID" class="form-control" placeholder="Enter User Name">
-               
+                <label>ID</label>
+                <input type="userName" name="user_ID" class="form-control" placeholder="Enter ID">
+                    <label>User Name</label>
+                    <input type="userName" name="user_name" class="form-control" placeholder="Enter User Name">  
             </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="user_password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <form action="createAccount.php">
-        <button type="submit" class="btn btn-primary">Create Account </button>
         </form>
        
     </div>
