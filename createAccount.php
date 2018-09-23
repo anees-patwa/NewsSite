@@ -15,13 +15,13 @@
         <form action="processNewUser.php" method="post">
             <div class="form-group">
                 <label>ID</label>
-                <input type="userName" name="user_ID" class="form-control" placeholder="Enter ID">
+                <input type="userName" name="user_ID" class="form-control" placeholder="Enter ID" required>
                     <label>User Name</label>
-                    <input type="userName" name="user_name" class="form-control" placeholder="Enter User Name">  
+                    <input type="userName" name="user_name" class="form-control" placeholder="Enter User Name" required>  
             </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="user_password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="user_password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
