@@ -7,6 +7,8 @@ $userID = $_SESSION['userID'];
 $title = $_POST['title'];
 $content = $_POST['content'];
 
+require("dataBaseAnees.php");
+
 $insertNewStory = $mysqli->prepare("insert into stories (user_id, title, link, content) values (?, ?, ?, ?)");
 if(!$insertNewStory){
 	printf("Query Prep Failed: %s\n", $mysqli->error);
