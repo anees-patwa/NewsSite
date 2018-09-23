@@ -15,12 +15,11 @@
         <form action="checkLogin.php" method="post">
             <div class="form-group">
                 <label>User Name</label>
-                <input type="userName" name="user_ID" class="form-control" placeholder="Enter User Name">
-               
+                <input type="userName" name="user_name" class="form-control" placeholder="Enter User Name" require>
             </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="user_password"class="form-control" id="exampleInputPassword1" placeholder="Password" require>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>

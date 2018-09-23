@@ -14,8 +14,6 @@
         <h1>Create User</h1>
         <form action="processNewUser.php" method="post">
             <div class="form-group">
-                <label>ID</label>
-                <input type="userName" name="user_ID" class="form-control" placeholder="Enter ID" required>
                     <label>User Name</label>
                     <input type="userName" name="user_name" class="form-control" placeholder="Enter User Name" required>  
             </div>
