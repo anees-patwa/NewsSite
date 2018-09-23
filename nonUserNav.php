@@ -16,7 +16,7 @@
       </li>
     </ul>
     <span class="navbar-item active">
-         <a class="nav-link" href="#">Login </a>
+         <a class="nav-link" href="loginView.php">Login </a>
     </span>
   </div>
 </nav>
