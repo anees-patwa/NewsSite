@@ -1,11 +1,11 @@
 <?php
 session_start();
+$user = $_POST['user_ID'];
 require('dataBase.php');
-$username = $_POST['userID'];
+require('userNav.php');
 
-//check valid username
-if( !preg_match('/^[\w_\-]+$/', $username) ){
-    return "Invalid username";
-}
+
+
+
 
 ?>

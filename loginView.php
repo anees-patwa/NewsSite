@@ -12,10 +12,10 @@
   <body>
     <div class="container" style="background-color: gray">
         <h1>Login</h1>
-        <form action="dataBase.php" method="POST">
+        <form action="checkLogin.php" method="post">
             <div class="form-group">
-                <label for="exampleInputEmail1">User Name</label>
-                <input type="userName" class="form-control" placeholder="Enter User Name">
+                <label>User Name</label>
+                <input type="userName" name="user_ID" class="form-control" placeholder="Enter User Name">
                
             </div>
                 <div class="form-group">
