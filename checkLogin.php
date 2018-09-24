@@ -21,21 +21,18 @@ $stmt->fetch();
 
 $pass = str_replace('"',"'",$pass);
 $password = str_replace('"',"'",$password);
-    if(password_verify($password, $pass)){
-        echo "login Successful";
-        echo "<p> </p>";
-        exit();
-        
-    }
-        else{
-            echo "<p> </p>";
-            echo $pass;
-            echo "<br>";
-            echo $password;
-            echo "<br>";
-            echo password_verify($password, $pass);
-            echo 'not working';
-        }
+if(password_verify($password, $pass)){
+    $_SESSION['userID'] = $userID;
+    ob_end_clean();
+    header("Location: home.php");
+    exit();
     
+}
+else{
+    ob_end_clean();
+    header("Location: home.php");
+    exit();
+}
 
+ob_end_flush();
 ?>
