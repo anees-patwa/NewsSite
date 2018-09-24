@@ -7,10 +7,12 @@
 
     <?php
     session_start();
-    require('userNav.php');
-    require('dataBase.php');
-
-      
+    if(isset($_SESSION['userID'])){
+      require('userNav.php');
+    } else {
+      require('nonUserNav.php');
+    }
+    
     ?>
   </head>
   <body>
