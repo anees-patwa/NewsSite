@@ -12,7 +12,6 @@
     } else {
       require('nonUserNav.php');
     }
-    
     ?>
   </head>
   <body>
