@@ -33,23 +33,6 @@ else{
     header("Location: home.php");
     exit();
 }
-    
 
 ob_end_flush();
-// if($user_name == $id){
-//     echo "users match";
-// }
-// else {
-//     echo "error";
-//}
-
-// if($cnt == 1 && password_verify($pwd_guess, $hash)){
-// 	// Login succeeded!
-// 	$_SESSION['user_id'] = $user_id;
-// 	// Redirect to your target page
-// } else{
-//     ob_end_clean();
-//     header("Location: createAccount.php");
-// }
-// ob_end_flush();
 ?>
