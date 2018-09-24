@@ -2,6 +2,7 @@
 session_start();
 if(!isset($_SESSION['userID']))
 ob_start();
+
 $user_id =   $_POST['user_ID'];
 $user_name = $_POST['user_name'];
 $password =  $_POST['user_password']; 
@@ -18,7 +19,7 @@ $stmt->execute();
 $stmt->bind_result($userID, $pass);
 
 $stmt->fetch();
-// $pass = '$2y$10$.JjE5/umvxBVfTxAxdprfeRB9hRiYnAUvdzdsZBI4K9NkcH/AUQny'
+
 $pass = str_replace('"',"'",$pass);
 $password = str_replace('"',"'",$password);
 if(password_verify($password, $pass)){
