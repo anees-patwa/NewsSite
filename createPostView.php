@@ -20,7 +20,7 @@ if(!isset($_SESSION['userID'])){
   <body>
     <div class="container" style="background-color: gray">
         <h1>New Post</h1>
-        <form action="createActionCtrl.php" method="POST">
+        <form action="createPostCtrl.php" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Title</label>
                 <input name="title" id="exampleInputEmail1" type="text" class="form-control" placeholder="Title of your story">
