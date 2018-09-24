@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['userID'])){
-	redirect("Location: home.php");
+	header("Location: home.php");
 	exit();
 }
 
@@ -45,6 +45,6 @@ $updateLink->bind_param('ss', $link, $storyID);
 $updateLink->execute();
 $updateLink->close();
 
-redirect("Location: home.php");
+header("Location: home.php");
 exit();
 ?>
