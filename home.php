@@ -6,7 +6,12 @@
     <title>Home</title>
 
     <?php
-    require('nonUserNav.php');
+    session_start();
+    if(isset($_SESSION['userID'])){
+      require('userNav.php');
+    } else {
+      require('nonUserNav.php');
+    }
     ?>
   </head>
   <body>
