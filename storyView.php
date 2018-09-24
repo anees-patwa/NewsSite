@@ -16,33 +16,32 @@
   <body>
   <div class="container" style="background-color: gray; margin-top: 20px;">
        <?php
-            $stmt = $mysqli->prepare("select title, content, link from blogData");
+        $storyID = $_GET['story_id'];
+            $stmt = $mysqli->prepare("select title, content from blogData where story_id=?");
+            $stmt->bind_param('i', $storyID);
             if(!$stmt){
                 printf("Query Prep Failed: %s\n", $mysqli->error);
                 exit;
             }
             $stmt->execute();
-            $stmt->bind_result($title, $content, $link);
+            $stmt->bind_result($title, $content);
                
            $blogArray = array();
 
-            while($stmt->fetch()){
-              echo '<a href= '. $link . '>' . htmlspecialchars($title). '>';
+            $stmt->fetch();
+               echo '<h1>'. htmlspecialchars($title).'</h1>';
+               echo '<p>' . htmlspecialchars($content). '<p>';
+
+               if(isset( $_SESSION['user_ID'])){
+                  
+                    echo '<button type="submit"> Like </button>';
+               }
       
 
-        }
+        
             $stmt->close();
        ?>
-            
-                 <!-- for($i = 0; $i < 1; $i++){
-                     $blogArray[i][0]= $title; 
-                     echo $blogArray[i][0];
-                     echo '<p></p>';
-                     for($b =0; $b < 1; $b++){
-                         $blogArray[0][b]= $content; 
-                         echo $blogArray[0][b];
-                     }
-                } -->
+        
 </div>
  </body>
  
