@@ -14,7 +14,7 @@ if(!isset($_SESSION['userID'])){
     <title>New Post</title>
 
     <?php
-    require('UserNav.php');
+    require('userNav.php');
     ?>
   </head>
   <body>
