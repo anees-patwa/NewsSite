@@ -20,7 +20,7 @@ if( !preg_match('/^[\w_\-]+$/', $user_name) ){
 $hash = password_hash($password, PASSWORD_BCRYPT);
 
 
-$insert = $mysqli->prepare("insert into loginData (username, hash) values (?, ?)");
+$insert = $mysqli->prepare("insert into users (username, hash) values (?, ?)");
 if(!$insert){
 	printf("Query Prep Failed: %s\n", $mysqli->error);
 	exit;

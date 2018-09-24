@@ -10,7 +10,7 @@ $password =  $_POST['user_password'];
 require('dataBaseAnees.php');
 require('nonUserNav.php');
 
-$stmt = $mysqli->prepare("select id, hash from loginData where username=?");
+$stmt = $mysqli->prepare("select id, hash from users where username=?");
 
 $stmt->bind_param('s', $user_name);
 $stmt->execute();
