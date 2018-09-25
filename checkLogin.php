@@ -1,9 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['userID']))
+
 ob_start();
 
-$user_id =   $_POST['user_ID'];
 $user_name = $_POST['user_name'];
 $password =  $_POST['user_password']; 
 
@@ -24,6 +23,7 @@ $pass = str_replace('"',"'",$pass);
 $password = str_replace('"',"'",$password);
 if(password_verify($password, $pass)){
     $_SESSION['userID'] = $userID;
+    $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32));
     ob_end_clean();
     header("Location: home.php");
     exit();

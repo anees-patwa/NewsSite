@@ -7,6 +7,7 @@
       exit();
     }
 
+    require("tokenCheck.php");
     $content = $_POST['content'];
     $storyID = (int)$_POST['storyID'];
 

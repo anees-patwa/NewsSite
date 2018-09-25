@@ -7,6 +7,7 @@
       exit();
     }
     
+    require("tokenCheck.php");
     $action = $_POST['action'];
     $storyID = (int)$_POST['storyID'];
     if($action == "delete"){
@@ -45,12 +46,14 @@
                 <input type='text' name='title' placeholder='%s'>
                 <input type='text' name='content' placeholder='%s'>
                 <input type='hidden' name='storyID' value='%d'>
+                <input type='hidden' name='token' value='<?php echo %s;?>'>
                 <button type='submit'>Submit</button>
             </form>        
         ",
         htmlentities($title), 
         htmlentities($content),
-        htmlentities($storyID)
+        htmlentities($storyID),
+        $_SESSION['token']
     );
     exit();
     }

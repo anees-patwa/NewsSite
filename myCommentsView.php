@@ -44,15 +44,18 @@
                     <form action='commentAction.php' method='post'>
                         <input type='hidden' name='action' value='edit'>
                         <input type='hidden' name='commentID' value='%d'>
+                        <input type='hidden' name='token' value='<?php echo %s;?>'>
                         <button type='submit'>Edit</button>
                     </form>
                     <form action='commentAction.php' method='post'>
                         <input type='hidden' name='action' value='delete'>
                         <input type='hidden' name='commentID' value='%d'>
+                        <input type='hidden' name='token' value='<?php echo %s;?>'>
                         <button type='submit'>Delete</button>
                     </form>
                   ", htmlentities($title), htmlentities($content), 
-                  htmlentities($commentID), htmlentities($commentID)
+                  htmlentities($commentID), $_SESSION['token'],
+                  htmlentities($commentID), $_SESSION['token']
               );
             }
             $stmt->close();

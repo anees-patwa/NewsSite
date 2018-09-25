@@ -31,7 +31,7 @@ $insert->bind_param('ss', $user_name , $hash);
 $insert->execute();
 
 $insert->close();
-
+header("Location: loginView.php");
 ob_end_flush();
 
 ?>

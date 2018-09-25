@@ -7,6 +7,8 @@
       exit();
     }
 
+    require("tokenCheck.php");
+
     $content = $_POST['content'];
     $commentID = (int)$_POST['commentID'];
 
