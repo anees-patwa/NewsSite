@@ -18,7 +18,7 @@
   <div class="container" style="background-color: gray; margin-top: 20px;">
        <?php
             require("dataBaseAnees.php");
-            $stmt = $mysqli->prepare("select title, content, link from blogData");
+            $stmt = $mysqli->prepare("select title, content, link from stories");
             if(!$stmt){
                 printf("Query Prep Failed: %s\n", $mysqli->error);
                 exit;
