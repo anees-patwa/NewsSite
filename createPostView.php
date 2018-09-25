@@ -30,6 +30,7 @@ if(!isset($_SESSION['userID'])){
                 <label for="exampleInputPassword1">Content</label>
                 <input name="content" type="text" class="form-control" id="exampleInputPassword1" placeholder="Your story goes here">
             </div>
+            <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>">
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>

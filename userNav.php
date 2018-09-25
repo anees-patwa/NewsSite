@@ -17,7 +17,10 @@
         <a class="nav-link" href="createPostView.php">Create Post</a>
       </li>
       <li class="nav-item active">
-       
+        <a class="nav-link" href="myCommentsView.php">My Comments</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="myStoriesView.php">My Stories</a>
       </li>
     </ul>
     <span class="navbar-item active">
