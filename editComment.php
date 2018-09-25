@@ -7,6 +7,8 @@
       exit();
     }
 
+    require("tokenCheck.php");
+
     $content = $_POST['content'];
     $commentID = (int)$_POST['commentID'];
 
@@ -19,5 +21,6 @@
     }
     $stmt->bind_param('sd', $content, $commentID);
     $stmt->execute();
+    header("Location: myCommentsView.php");
     exit();
 ?>

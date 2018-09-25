@@ -44,15 +44,18 @@
                     <form action='storyAction.php' method='post'>
                         <input type='hidden' name='action' value='edit'>
                         <input type='hidden' name='storyID' value='%d'>
+                        <input type='hidden' name='token' value='%s'>
                         <button type='submit'>Edit</button>
                     </form>
                     <form action='storyAction.php' method='post'>
                         <input type='hidden' name='action' value='delete'>
                         <input type='hidden' name='storyID' value='%d'>
+                        <input type='hidden' name='token' value='%s'>
                         <button type='submit'>Delete</button>
                     </form>
                   ", htmlentities($title), htmlentities($content), 
-                  htmlentities($storyID), htmlentities($storyID)
+                 $storyID, $_SESSION['token'],
+                 $storyID, $_SESSION['token']
               );
             }
             $stmt->close();

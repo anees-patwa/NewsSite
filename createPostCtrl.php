@@ -2,9 +2,14 @@
 session_start();
 if(!isset($_SESSION['userID'])){
 	header("Location: home.php");
-	
 	exit();
 }
+
+require("tokenCheck.php");
+/*echo $_POST['token'];
+echo "<br>";
+echo $_SESSION['token'];
+exit();*/
 
 $userID = $_SESSION['userID'];
 $title = $_POST['title'];
