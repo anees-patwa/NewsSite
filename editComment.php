@@ -21,5 +21,6 @@
     }
     $stmt->bind_param('sd', $content, $commentID);
     $stmt->execute();
+    header("Location: myCommentsView.php");
     exit();
 ?>

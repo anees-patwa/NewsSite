@@ -46,13 +46,13 @@
             <form action='editComment.php' method='post'>
                 <input type='text' name='content' placeholder='%s'>
                 <input type='hidden' name='commentID' value='%d'>
-                <input type='hidden' name='token' value='<?php echo %s;?>'>
+                <input type='hidden' name='token' value='%s'>
                 <button type='submit'>Submit</button>
             </form>        
         ",
         htmlentities($content), htmlentities($commentID),
         $_SESSION['token']
     );
-    exit();
+   
     }
 ?>

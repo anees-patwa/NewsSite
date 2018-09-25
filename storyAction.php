@@ -46,7 +46,7 @@
                 <input type='text' name='title' placeholder='%s'>
                 <input type='text' name='content' placeholder='%s'>
                 <input type='hidden' name='storyID' value='%d'>
-                <input type='hidden' name='token' value='<?php echo %s;?>'>
+                <input type='hidden' name='token' value='%s'>
                 <button type='submit'>Submit</button>
             </form>        
         ",
@@ -55,6 +55,6 @@
         htmlentities($storyID),
         $_SESSION['token']
     );
-    exit();
+    
     }
 ?>
