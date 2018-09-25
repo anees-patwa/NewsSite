@@ -23,7 +23,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <form action="createAccount.php">
+        <form action="createAccount.php"> 
         <button type="submit" class="btn btn-primary">Create Account </button>
         </form>
        
