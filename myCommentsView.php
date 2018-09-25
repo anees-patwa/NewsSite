@@ -11,6 +11,7 @@
       require('userNav.php');
     } else {
       header("Location: home.php");
+      exit();
     }
     ?>
   </head>
@@ -23,16 +24,16 @@
         <th>Actions</th>
     </tr>
        <?php
-            $userID = $_SESSION['userID'];
+            $userID = (int)$_SESSION['userID'];
             require("dataBaseAnees.php");
-            $stmt = $mysqli->prepare("select stories.title, comments.content, comment_id from comments join stories on (stories.story_id=story_id) where user_id=?");
+            $stmt = $mysqli->prepare("select stories.title, comments.content, comment_id from comments join stories on (stories.story_id=comments.story_id) where comments.user_id=?");
             if(!$stmt){
                 printf("Query Prep Failed: %s\n", $mysqli->error);
-                exit;
+                exit();
             }
-            $stmt->bind_params('i', $userID);
+            $stmt->bind_param('d', $userID);
             $stmt->execute();
-            $stmt->bind_result($title, $content);
+            $stmt->bind_result($title, $content, $commentID);
 
             while($stmt->fetch()){
               printf(
@@ -40,18 +41,22 @@
                   <th>%s</th>
                   <th>%s</th>
                   <th>
-                    <form action='commentAction.php'>
-                        <input type='hidden' name='delete' value='1'>
-                        <button type='submit'>Submit</button>
+                    <form action='commentAction.php' method='post'>
+                        <input type='hidden' name='action' value='edit'>
+                        <input type='hidden' name='commentID' value='%d'>
+                        <button type='submit'>Edit</button>
                     </form>
-                    <form action='commentAction.php'>
-                        <input type='hidden' name='edit' value='1'>
-                        <button type='submit'>Submit</button>
+                    <form action='commentAction.php' method='post'>
+                        <input type='hidden' name='action' value='delete'>
+                        <input type='hidden' name='commentID' value='%d'>
+                        <button type='submit'>Delete</button>
                     </form>
-                  ", htmlentities($title), htmlentities($content) 
+                  ", htmlentities($title), htmlentities($content), 
+                  htmlentities($commentID), htmlentities($commentID)
               );
             }
             $stmt->close();
+            exit();
        ?>
   </table>  
 
