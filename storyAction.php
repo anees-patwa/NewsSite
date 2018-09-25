@@ -37,7 +37,7 @@
         $deleteComment->bind_param('d', $storyID);
 
         $deleteComment->execute();
-        $deleteComment->bind_param($title, $content);
+        $deleteComment->bind_result($title, $content);
         $deleteComment->fetch();
         $deleteComment->close();
         printf("
