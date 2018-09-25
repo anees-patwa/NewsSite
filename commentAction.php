@@ -10,7 +10,7 @@
     $action = $_POST['action'];
     $commentID = (int)$_POST['commentID'];
     if($action == "delete"){
-
+        require("dataBaseAnees.php");
         $deleteComment = $mysqli->prepare("delete from comments where comment_id=?");
         if(!$deleteComment){
             printf("Query Prep Failed: %s\n", $mysqli->error);
