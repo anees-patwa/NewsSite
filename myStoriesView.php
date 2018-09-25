@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="utf-8">
-    <title>My Comments</title>
+    <title>My Stories</title>
 
     <?php
     session_start();
@@ -20,20 +20,20 @@
   <table>
     <tr>
         <th>Story Title</th>
-        <th>Comment</th>
+        <th>Content</th>
         <th>Actions</th>
     </tr>
        <?php
             $userID = (int)$_SESSION['userID'];
             require("dataBaseAnees.php");
-            $stmt = $mysqli->prepare("select stories.title, comments.content, comment_id from comments join stories on (stories.story_id=comments.story_id) where comments.user_id=?");
+            $stmt = $mysqli->prepare("select story_id, title, content from stories where user_id=?");
             if(!$stmt){
                 printf("Query Prep Failed: %s\n", $mysqli->error);
                 exit();
             }
             $stmt->bind_param('d', $userID);
             $stmt->execute();
-            $stmt->bind_result($title, $content, $commentID);
+            $stmt->bind_result($storyID, $title, $content);
 
             while($stmt->fetch()){
               printf(
@@ -41,18 +41,18 @@
                   <th>%s</th>
                   <th>%s</th>
                   <th>
-                    <form action='commentAction.php' method='post'>
+                    <form action='storyAction.php' method='post'>
                         <input type='hidden' name='action' value='edit'>
-                        <input type='hidden' name='commentID' value='%d'>
+                        <input type='hidden' name='storyID' value='%d'>
                         <button type='submit'>Edit</button>
                     </form>
-                    <form action='commentAction.php' method='post'>
+                    <form action='storyAction.php' method='post'>
                         <input type='hidden' name='action' value='delete'>
-                        <input type='hidden' name='commentID' value='%d'>
+                        <input type='hidden' name='storyID' value='%d'>
                         <button type='submit'>Delete</button>
                     </form>
                   ", htmlentities($title), htmlentities($content), 
-                  htmlentities($commentID), htmlentities($commentID)
+                  htmlentities($storyID), htmlentities($storyID)
               );
             }
             $stmt->close();
