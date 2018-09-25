@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['userID']))
+
 ob_start();
 
 $user_id =   $_POST['user_ID'];
@@ -9,7 +9,7 @@ $password =  $_POST['user_password'];
 
 
 require('dataBaseAnees.php');
-require('nonUserNav.php');
+
 
 $stmt = $mysqli->prepare("select id, hash from users where username=?");
 
@@ -22,6 +22,7 @@ $stmt->fetch();
 
 $pass = str_replace('"',"'",$pass);
 $password = str_replace('"',"'",$password);
+
 if(password_verify($password, $pass)){
     $_SESSION['userID'] = $userID;
     ob_end_clean();
@@ -31,7 +32,8 @@ if(password_verify($password, $pass)){
 }
 else{
     ob_end_clean();
-    header("Location: home.php");
+    header("Location: loginView.php");
+    session_destroy();
     exit();
 }
 

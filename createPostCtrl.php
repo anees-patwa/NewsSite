@@ -12,7 +12,7 @@ $content = $_POST['content'];
 $link = "";
 require("dataBaseAnees.php");
 
-$insertNewStory = $mysqli->prepare("insert into stories (user_id, title, link, content) values (?, ?, ?, ?)");
+$insertNewStory = $mysqli->prepare ("insert into stories (user_id, title, link, content) values (?, ?, ?, ?)");
 if(!$insertNewStory){
 	
 	printf("Query Prep Failed: %s\n", $mysqli->error);
