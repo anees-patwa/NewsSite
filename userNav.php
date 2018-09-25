@@ -24,7 +24,7 @@
       </li>
     </ul>
     <span class="navbar-item active">
-         <a class="nav-link" href="#">Log out</a>
+         <a class="nav-link" href="logout.php">Log out</a>
     </span>
   </div>
 </nav>
