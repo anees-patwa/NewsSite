@@ -6,10 +6,11 @@
     <title>Search</title>
 
     <?php
+    session_start();
     if(isset($_SESSION['userID'])){
         require("userNav.php");
     } else {
-        require('nonUserNav.php');
+        require("nonUserNav.php");
     }
     
     ?>
