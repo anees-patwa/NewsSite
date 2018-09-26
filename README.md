@@ -14,6 +14,6 @@ http://ec2-18-223-143-71.us-east-2.compute.amazonaws.com/~apatwa/module2Grp/logi
 ##### Creative Portion
 - added a search feature where the user can search for specific blogs based off the blog title.
 if the blog does not exist, the user is prompted 'file does not exist.'
-
+- you can search regardless if you are signed in or not
 
 
