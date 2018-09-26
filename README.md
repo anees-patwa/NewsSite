@@ -1,12 +1,12 @@
-# Blog Site
+# News Site
 Web Application to send, view, and comment on users blog bosts 
 
 # Link
-http://ec2-18-223-143-71.us-east-2.compute.amazonaws.com/~apatwa/module2Grp/loginView.php
+http://ec2-18-223-143-71.us-east-2.compute.amazonaws.com/~apatwa/module3Grp/home.php
 
 # Features
 - Create a user, login, and log out of the blog website 
-- If you are a user, you can Upload posts to website
+- If you are a user, you can Upload posts to the website
 - View posts in website either if you are a user or not
 - comment on the posts if you are logged in 
 - Used bootstrap and flex boxes for front-end design
@@ -16,4 +16,5 @@ http://ec2-18-223-143-71.us-east-2.compute.amazonaws.com/~apatwa/module2Grp/logi
 if the blog does not exist, the user is prompted 'file does not exist.'
 - you can search regardless if you are signed in or not
 
-
+#Notes
+- user 'apatwa' already exists with password 'apatwa'
