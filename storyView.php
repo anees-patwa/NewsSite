@@ -7,8 +7,12 @@
 
     <?php
     session_start();
+    if(!isset($_SESSION['userID'])){
+      header("Location: home.php");
+      exit();
+    }
     require('userNav.php');
-    require('dataBase.php');
+    require('dataBaseAnees.php');
 
       
     ?>
@@ -17,16 +21,14 @@
   <div class="container" style="background-color: gray; margin-top: 20px;">
        <?php
         $storyID = $_GET['story_id'];
-            $stmt = $mysqli->prepare("select title, content from blogData where story_id=?");
-            $stmt->bind_param('i', $storyID);
+            $stmt = $mysqli->prepare("select title, content from stories where story_id=?");
+            $stmt->bind_param('d', $storyID);
             if(!$stmt){
                 printf("Query Prep Failed: %s\n", $mysqli->error);
                 exit;
             }
             $stmt->execute();
             $stmt->bind_result($title, $content);
-               
-           $blogArray = array();
 
             $stmt->fetch();
                echo '<h1>'. htmlspecialchars($title).'</h1>';
@@ -34,7 +36,12 @@
 
                if(isset( $_SESSION['user_ID'])){
                   
-                    echo '<button type="submit"> Like </button>';
+                    printf( "
+                    <form action='newCommentView.php' method='post'>
+                    <input type='hidden name='storyID' value='%d'>
+                    <button type='submit'>New Comment</button> 
+                    ",
+                    $storyID);
                }
       
 
