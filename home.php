@@ -15,7 +15,7 @@
     ?>
   </head>
   <body>
-  <div class="container" style="background-color: gray; margin-top: 20px;">
+  <div class="container" style="background-color: #D0E3F5; margin-top: 20px;">
        <?php
             require("dataBaseAnees.php");
             $stmt = $mysqli->prepare("select title, content, link from stories");
