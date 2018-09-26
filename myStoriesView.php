@@ -17,7 +17,7 @@
     ?>
   </head>
   <body>
-  <div class="container" style="background-color: gray; margin-top: 20px;">
+  <div class="container" style=" margin-top: 20px;">
   <table id="comment-table">
     <tr>
         <th>Story Title</th>
@@ -39,9 +39,9 @@
             while($stmt->fetch()){
               printf(
                   "<tr>
-                  <th>%s</th>
-                  <th>%s</th>
-                  <th>
+                  <td>%s</td>
+                  <td>%s</td>
+                  <td>
                     <form action='storyAction.php' method='post'>
                         <input type='hidden' name='action' value='edit'>
                         <input type='hidden' name='storyID' value='%d'>
@@ -54,6 +54,7 @@
                         <input type='hidden' name='token' value='%s'>
                         <button type='submit'>Delete</button>
                     </form>
+                  </td>
                   ", htmlentities($title), htmlentities($content), 
                  $storyID, $_SESSION['token'],
                  $storyID, $_SESSION['token']

@@ -7,42 +7,78 @@
 
     <?php
     session_start();
-    require('userNav.php');
-    require('dataBase.php');
+    
+    if(!isset($_SESSION['userID'])){
+      require('nonUserNav.php');
+    } else {
+      require('userNav.php');
+    }
+    
+    require('dataBaseAnees.php');
 
       
     ?>
   </head>
   <body>
-  <div class="container" style="background-color: gray; margin-top: 20px;">
+  <div class="container" style="background-color: white; margin-top: 20px;">
        <?php
         $storyID = $_GET['story_id'];
-            $stmt = $mysqli->prepare("select title, content from blogData where story_id=?");
-            $stmt->bind_param('i', $storyID);
+            $stmt = $mysqli->prepare("select title, content from stories where story_id=?");
+            $stmt->bind_param('d', $storyID);
             if(!$stmt){
                 printf("Query Prep Failed: %s\n", $mysqli->error);
                 exit;
             }
             $stmt->execute();
             $stmt->bind_result($title, $content);
-               
-           $blogArray = array();
-
             $stmt->fetch();
-               echo '<h1>'. htmlspecialchars($title).'</h1>';
-               echo '<p>' . htmlspecialchars($content). '<p>';
-
-               if(isset( $_SESSION['user_ID'])){
-                  
-                    echo '<button type="submit"> Like </button>';
-               }
-      
-
-        
+            echo "<div style='text-align:center'>";
+               printf( '<h1>%s</h1>', htmlspecialchars($title));
+            echo "</div>";
+               printf('<p>%s<p>', htmlspecialchars($content));
             $stmt->close();
        ?>
+       </div>
+       
+       <div class="container" style="margin-top: 20px;">
+       <h3 style="text-align:center">Comments</h3>
+       <table class="table table-striped table-bordered">
+            <?php
+              $comment = $mysqli->prepare("select content from comments where story_id=?");
+              $comment->bind_param('d', $storyID);
+              if(!$comment){
+                  printf("Query Prep Failed: %s\n", $mysqli->error);
+                  exit;
+              }
+              $comment->execute();
+              $comment->bind_result($content);
+
+              while($comment->fetch()){
+                printf("
+                <tr><td>%s</td></tr>
+                ", htmlentities($content));
+              }
+              $comment->close();
+            ?>
+       </table>
+       </div>
+       <div class="container" style="margin-top: 20px">
+       <?php
+       
+        if(isset($_SESSION['userID'])){
+                  
+          printf( "
+          <form action='newCommentView.php' method='post'>
+          <input type='hidden' name='storyID' value='%d'>
+          <button type='submit'>New Comment</button> 
+          </form>
+          ",
+          $storyID);
+     }
+       ?>
+       </div>
         
-</div>
+
  </body>
  
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

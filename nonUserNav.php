@@ -15,6 +15,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="createAccount.php">Sign-up</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="searchView.php">Search</a>
+      </li>
     </ul>
     <span class="navbar-item active">
          <a class="nav-link" href="loginView.php">Login </a>
