@@ -22,6 +22,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="myStoriesView.php">My Stories</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="searchView.php">Search</a>
+      </li>
     </ul>
     <span class="navbar-item active">
          <a class="nav-link" href="logout.php">Log out</a>
