@@ -8,27 +8,23 @@
     <?php
     if(isset($_SESSION['userID'])){
         require("userNav.php");
+    } else {
+        require('nonUserNav.php');
     }
-    require('nonUserNav.php');
+    
     ?>
   </head>
   <body>
     <div class="container" style="background-color: red">
-        <h1>Login</h1>
-        <form action="checkLogin.php" method="post">
+        <h1>Search</h1>
+        <form action="processSearch.php" method="post">
             <div class="form-group">
-                <label>User Name</label>
-                <input type="userName" name="user_name" class="form-control" placeholder="Enter User Name" require>
+                <label>Story Name</label>
+                <input type="text" name="title" class="form-control" placeholder="Enter Story Name" require>
             </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="user_password"class="form-control" id="exampleInputPassword1" placeholder="Password" require>
-                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <form action="createAccount.php">
-        <button type="submit" class="btn btn-primary">Create Account </button>
-        </form>
+       
        
     </div>
  </body>
