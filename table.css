@@ -1,15 +1,21 @@
 #comment-table tr:nth-child(even){
-    background-color: #d3ddf0;
+    background-color: white;
 }
 
 #comment-table tr:hover{
-    background-color: white;
+    background-color: #d3ddf0;
+    margin-left:500px;
 }
 
 #comment-table th{
     padding-top: 12px;
     padding-bottom: 12px;
+    margin-left:500px;
     text-align: left;
     color: white;
     background-color: #c90000;
+}
+
+#comment-table {
+    width:100%;
 }

@@ -29,7 +29,7 @@
            $blogArray = array();
 
             while($stmt->fetch()){
-              echo '<a href= '. $link . '>' . htmlspecialchars($title). '>';
+              printf( "<h2><a href='%s'>%s</h2>",  $link, htmlspecialchars($title));
       
 
         }
