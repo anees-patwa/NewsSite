@@ -16,5 +16,9 @@ http://ec2-18-223-143-71.us-east-2.compute.amazonaws.com/~apatwa/module3Grp/home
 if the blog does not exist, the user is prompted 'file does not exist.'
 - you can search regardless if you are signed in or not
 
+#Students
+- Anees Patwa 457996
+- Armando Quintana 457418
+
 #Notes
 - user 'apatwa' already exists with password 'apatwa'
