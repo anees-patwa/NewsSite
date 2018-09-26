@@ -8,10 +8,11 @@
     <?php
     session_start();
     if(!isset($_SESSION['userID'])){
-      header("Location: home.php");
-      exit();
+      require('userNav.php');
+    } else {
+      require('nonUserNav.php');
     }
-    require('userNav.php');
+    
     require('dataBaseAnees.php');
 
       
