@@ -55,7 +55,7 @@
 
               while($comment->fetch()){
                 printf("
-                <td>%s</td>
+                <tr><td>%s</td></tr>
                 ", htmlentities($content));
               }
               $comment->close();
